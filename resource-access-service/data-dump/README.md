@@ -1,3 +1,13 @@
+# Resource server data (Elasticsearch Dump)
+
+Due to large size of datasets, its uploaded in drive ( and not in github/git LFS)
+
+Please find the datasets at the link : https://drive.google.com/drive/folders/1mbllMFJJw146O5TJQILUXURj80eqh7Wp
+
+The link contains two datasets mainly:
+1) Pune-env-flood - pune-env-flood-dump.zip
+2) Surat-itms data - surat-itms-dump.zip
+
 # Create ES Index dump
 
 Stack yaml (deploy in same swarm as es)-
@@ -67,3 +77,4 @@ Copy dump from container to host fs -
 ```sh
 docker cp <container>:/tmp/csv-export.csv ./csv-export.csv
 ```
+
