@@ -12,71 +12,39 @@ The link contains the following sets:
 
 # Create ES Index dump
 
-Stack yaml (deploy in same swarm as es)-
-```yaml
-version: "3.4"
+##Installing elasticdump using docker
 
-networks:
-  overlay-net:
-    external: true
-    driver: overlay
-
-services:
-
-  logstash-test:
-    image: docker.elastic.co/logstash/logstash:7.8.1
-    deploy:
-      replicas: 1
-      placement:
-        constraints:
-          - "node.labels.database_node==true"
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        window: 10s
-    networks:
-      - overlay-net
-    command: /bin/bash -c "while true; do sleep 30; done;"
+```
+docker pull elasticdump/elastisearch-dump
 ```
 
-Deploy stack -
-```sh
-docker stack deploy -c logstash-dump-stack.yml dump
-```
-Access container shell -
-```sh
-docker exec -it <container-id> /bin/bash
-```
-Install required plugins -
-```sh
-bin/logstash-plugin install logstash-input-elasticsearch logstash-output-csv
-```
-Create the logstah dump pipeline cfg -
-```sh
-vi pipeline/dump.cfg
-```
-```yaml
-input {
-         elasticsearch {
-            hosts => "tasks.elasticsearch:9200"
-        user => "user"
-        password => "password"
-            index => "index-to-dump"
-          }
-        }
-        output {
-          csv {
-                fields => ["[id]","[fields from _source to retrieve in csv]"]
-            path => "/tmp/csv-export.csv"
-          }
-        }
-```
-Run logstash with dump config -
-```sh
-bin/logstash -f pipeline/dump.cfg
-```
-Copy dump from container to host fs -
-```sh
-docker cp <container>:/tmp/csv-export.csv ./csv-export.csv
-```
+##Running elasticsearch
 
+- Create directory for data
+  `mkdir data`
+- Run elasticdump to download json data t0 `/data`
+
+    - Provider data dump
+      ```
+      docker run --rm -ti -v /data:/tmp elasticdump/elasticsearch-dump \
+      --input=http://<username>:<password>@production.es.com:9200/my_index \
+      --output=/tmp/cat_provider.json \
+      --type=data
+      --searchBody="{\"query\":{\"bool\":{\"must\":[{\"match\":{\"type.keyword\":\"iudx:Provider\"}}]}},\"_source\":{\"excludes\":\"_word_vector\"}}"
+      ```
+    - Resource Server data dump
+      ```
+       docker run --rm -ti -v /data:/tmp elasticdump/elasticsearch-dump \
+      --input=http://<username>:<password>@production.es.com:9200/my_index \
+      --output=/tmp/cat_resource_servers.json \
+      --type=data
+      --searchBody="{\"query\":{\"bool\":{\"must\":[{\"match\":{\"type.keyword\":\"iudx:ResourceServer\"}}]}},\"_source\":{\"excludes\":\"_word_vector\"}}" 
+      ```
+    - Resource Group data dump
+      ```
+       docker run --rm -ti -v /data:/tmp elasticdump/elasticsearch-dump \
+      --input=http://<username>:<password>@production.es.com:9200/my_index \
+      --output=/tmp/cat_resource_groups.json \
+      --type=data
+      --searchBody="{\"query\":{\"bool\":{\"must\":[{\"match\":{\"type.keyword\":\"iudx:ResourceGroup\"}}]}},\"_source\":{\"excludes\":\"_word_vector\"}}" 
+        ``` 
