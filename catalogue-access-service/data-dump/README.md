@@ -1,4 +1,4 @@
-# Resource server data (Elasticsearch Dump)
+# Catalogue server data (Elasticsearch Dump)
 
 Due to large size of datasets, its uploaded in drive ( and not in github/git LFS)
 
@@ -12,13 +12,13 @@ The link contains the following sets:
 
 # Create ES Index dump
 
-##Installing elasticdump using docker
+## Installing elasticdump using docker
 
 ```
 docker pull elasticdump/elastisearch-dump
 ```
 
-##Running elasticsearch
+## Running elasticsearch
 
 - Create directory for data
   `mkdir data`
