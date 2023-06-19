@@ -854,6 +854,9 @@
 					"script": {
 						"type": "text/javascript",
 						"exec": [
+							"// Use this script according to your clientId and secret to get JWT token from the Auth Server",
+							"",
+							"",
 							"const clientId = pm.environment.get(\"providerClientID\");",
 							"const clientSecret = pm.environment.get(\"providerClientSecret\");",
 							"",
@@ -903,7 +906,7 @@
 					"name": "L0",
 					"item": [
 						{
-							"name": "Attribute Search",
+							"name": "Attribute Search (Property search)",
 							"item": [
 								{
 									"name": "Test 009a : 200 - SimpleAttribute",
@@ -1095,11 +1098,6 @@
 												{
 													"key": "value",
 													"value": "\"[[aqm, flood], [pune,delhi]]\""
-												},
-												{
-													"key": "filter",
-													"value": "[deviceModelInfo.name]",
-													"disabled": true
 												}
 											]
 										}
@@ -1447,177 +1445,6 @@
 												{
 													"key": "value",
 													"value": "\"[[datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.org.in/aqm-bosch-climo/Pune Railway Station_28],[sensor1,sensor2,sensor3,sensor4,sensor5],[aqm],[pune]]\""
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 010h : 400 - Response filter",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?property=\"[id]\"&value=\"[[datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.org.in/aqm-bosch-climo/Pune Railway Station_28]]\"&filter=[id,name,tags,deviceId,resourceServer,provider,location,address,type,itemStatus,authServerInfo]",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "property",
-													"value": "\"[id]\""
-												},
-												{
-													"key": "value",
-													"value": "\"[[datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.org.in/aqm-bosch-climo/Pune Railway Station_28]]\""
-												},
-												{
-													"key": "filter",
-													"value": "[id,name,tags,deviceId,resourceServer,provider,location,address,type,itemStatus,authServerInfo]"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 010i : 400 - Exceed limit value",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?property=\"[id]\"&value=\"[[datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.org.in/aqm-bosch-climo/Pune Railway Station_28]]\"&filter=[id,name,tags]&limit=10000000",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "property",
-													"value": "\"[id]\""
-												},
-												{
-													"key": "value",
-													"value": "\"[[datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.org.in/aqm-bosch-climo/Pune Railway Station_28]]\""
-												},
-												{
-													"key": "filter",
-													"value": "[id,name,tags]"
-												},
-												{
-													"key": "limit",
-													"value": "10000000"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 010j : 400 - Exceed offset value",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?property=\"[id]\"&value=\"[[datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.org.in/aqm-bosch-climo/Pune Railway Station_28]]\"&filter=[id,name,tags]&limit=10&offset=1001001",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "property",
-													"value": "\"[id]\""
-												},
-												{
-													"key": "value",
-													"value": "\"[[datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.org.in/aqm-bosch-climo/Pune Railway Station_28]]\""
-												},
-												{
-													"key": "filter",
-													"value": "[id,name,tags]"
-												},
-												{
-													"key": "limit",
-													"value": "10"
-												},
-												{
-													"key": "offset",
-													"value": "1001001"
 												}
 											]
 										}
@@ -2090,62 +1917,14 @@
 										}
 									},
 									"response": []
-								},
-								{
-									"name": "Test 012g : 400 - Exceed limit value",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"type\", \"urn:dx:cat:InvalidSyntax\");\r",
-													"});\r",
-													"\r",
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/list/tags?limit=13323232320",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"list",
-												"tags"
-											],
-											"query": [
-												{
-													"key": "limit",
-													"value": "13323232320"
-												}
-											]
-										}
-									},
-									"response": []
 								}
 							]
 						},
 						{
-							"name": "Tag Search",
+							"name": "Tag Search (Property search)",
 							"item": [
 								{
-									"name": "Test 013a : 200 - Tag Search (filter,limit,offset)",
+									"name": "Test 013a : 200 - Tag Search",
 									"event": [
 										{
 											"listen": "test",
@@ -2172,7 +1951,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{host}}{{base}}/search?property=\"[tags]\"&value=\"[[pollution]]\"&filter=[id,tags]&limit=100&offset=0",
+											"raw": "{{host}}{{base}}/search?property=\"[tags]\"&value=\"[[pollution]]\"",
 											"host": [
 												"{{host}}{{base}}"
 											],
@@ -2187,18 +1966,6 @@
 												{
 													"key": "value",
 													"value": "\"[[pollution]]\""
-												},
-												{
-													"key": "filter",
-													"value": "[id,tags]"
-												},
-												{
-													"key": "limit",
-													"value": "100"
-												},
-												{
-													"key": "offset",
-													"value": "0"
 												}
 											]
 										}
@@ -2233,7 +2000,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{host}}{{base}}/search?property=[tags]&value=[[pollution, flood]]",
+											"raw": "{{host}}{{base}}/search?property=[tag$]&value=[[pollution, flood]]",
 											"host": [
 												"{{host}}{{base}}"
 											],
@@ -2243,7 +2010,7 @@
 											"query": [
 												{
 													"key": "property",
-													"value": "[tags]"
+													"value": "[tag$]"
 												},
 												{
 													"key": "value",
@@ -2348,189 +2115,6 @@
 												{
 													"key": "value",
 													"value": "[[abc, abc123]]"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 014c : 400 - Response filter",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?property=\"[tags]\"&value=\"[[pollution]]\"&filter=[id,name,tags,deviceId,resourceServer,provider,location,address,type,itemStatus,authServerInfo]&limit=100&offset=0",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "property",
-													"value": "\"[tags]\""
-												},
-												{
-													"key": "value",
-													"value": "\"[[pollution]]\""
-												},
-												{
-													"key": "filter",
-													"value": "[id,name,tags,deviceId,resourceServer,provider,location,address,type,itemStatus,authServerInfo]"
-												},
-												{
-													"key": "limit",
-													"value": "100"
-												},
-												{
-													"key": "offset",
-													"value": "0"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 014d : 400 - Exceed limit value",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?property=\"[tags]\"&value=\"[[pollution]]\"&filter=[id,name,tags,deviceId]&limit=1000000&offset=0",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "property",
-													"value": "\"[tags]\""
-												},
-												{
-													"key": "value",
-													"value": "\"[[pollution]]\""
-												},
-												{
-													"key": "filter",
-													"value": "[id,name,tags,deviceId]"
-												},
-												{
-													"key": "limit",
-													"value": "1000000"
-												},
-												{
-													"key": "offset",
-													"value": "0"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 014e : 400 - Exceed offset value",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?property=\"[tags]\"&value=\"[[pollution]]\"&filter=[id,name,tags,deviceId]&limit=100&offset=1000000",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "property",
-													"value": "\"[tags]\""
-												},
-												{
-													"key": "value",
-													"value": "\"[[pollution]]\""
-												},
-												{
-													"key": "filter",
-													"value": "[id,name,tags,deviceId]"
-												},
-												{
-													"key": "limit",
-													"value": "100"
-												},
-												{
-													"key": "offset",
-													"value": "1000000"
 												}
 											]
 										}
@@ -3902,116 +3486,6 @@
 										}
 									},
 									"response": []
-								},
-								{
-									"name": "Test 017e : 400 - Response filter",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
-													"});\r",
-													"\r",
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/relationship?id=datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.io/aqm-bosch-climo/Sadhu_Wasvani_Square_24&rel=resourceGroup&filter=[id,name,tags,deviceId,resourceServer,provider,location,address,type,itemStatus,authServerInfo]",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"relationship"
-											],
-											"query": [
-												{
-													"key": "id",
-													"value": "datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.io/aqm-bosch-climo/Sadhu_Wasvani_Square_24"
-												},
-												{
-													"key": "rel",
-													"value": "resourceGroup"
-												},
-												{
-													"key": "filter",
-													"value": "[id,name,tags,deviceId,resourceServer,provider,location,address,type,itemStatus,authServerInfo]"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 017f : 400 - Exceed limit value",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
-													"});\r",
-													"\r",
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/relationship?id=datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.io/aqm-bosch-climo/Sadhu_Wasvani_Square_24&rel=resourceGroup&limit=1000001",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"relationship"
-											],
-											"query": [
-												{
-													"key": "id",
-													"value": "datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.io/aqm-bosch-climo/Sadhu_Wasvani_Square_24"
-												},
-												{
-													"key": "rel",
-													"value": "resourceGroup"
-												},
-												{
-													"key": "limit",
-													"value": "1000001"
-												}
-											]
-										}
-									},
-									"response": []
 								}
 							]
 						},
@@ -4108,16 +3582,6 @@
 												"relsearch"
 											],
 											"query": [
-												{
-													"key": "limit",
-													"value": "50",
-													"disabled": true
-												},
-												{
-													"key": "offset",
-													"value": "100",
-													"disabled": true
-												},
 												{
 													"key": "value",
 													"value": "\"[[openAPI]]\""
@@ -7015,1094 +6479,6 @@
 										}
 									},
 									"response": []
-								},
-								{
-									"name": "Test 028d: 400 - Response filter",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?q=\"Bosch Climo\"&filter=[id,name,tags,deviceId,resourceServer,provider,location,address,type,itemStatus,authServerInfo]",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "q",
-													"value": "\"Bosch Climo\""
-												},
-												{
-													"key": "filter",
-													"value": "[id,name,tags,deviceId,resourceServer,provider,location,address,type,itemStatus,authServerInfo]"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 028e: 400 - Exceed limit value",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?q=\"Bosch Climo\"&limit=1000000",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "q",
-													"value": "\"Bosch Climo\""
-												},
-												{
-													"key": "limit",
-													"value": "1000000"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 028f : 400 - Exceed offset value",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?q=\"Bosch Climo\"&limit=100&offset=100000",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "q",
-													"value": "\"Bosch Climo\""
-												},
-												{
-													"key": "limit",
-													"value": "100"
-												},
-												{
-													"key": "offset",
-													"value": "100000"
-												}
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "Complex Search",
-							"item": [
-								{
-									"name": "Test 029a: 200 - GeoFilter",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&filter=[tags,id,location.geometry.coordinates]",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "geoproperty",
-													"value": "location"
-												},
-												{
-													"key": "georel",
-													"value": "within"
-												},
-												{
-													"key": "geometry",
-													"value": "Polygon"
-												},
-												{
-													"key": "coordinates",
-													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
-												},
-												{
-													"key": "filter",
-													"value": "[tags,id,location.geometry.coordinates]"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 029b: 200 - GeoAttribute",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"type\", \"urn:dx:cat:Success\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?property=\"[location.address]\"&value=\"[[pune,delhi]]\"&geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "property",
-													"value": "\"[location.address]\""
-												},
-												{
-													"key": "value",
-													"value": "\"[[pune,delhi]]\""
-												},
-												{
-													"key": "geoproperty",
-													"value": "location"
-												},
-												{
-													"key": "georel",
-													"value": "within"
-												},
-												{
-													"key": "geometry",
-													"value": "Polygon"
-												},
-												{
-													"key": "coordinates",
-													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 029c: 200 - GeoText",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?q=\"Golibar Square\"&geoproperty=location&georel=within&geometry=Point&coordinates=[73.878603,18.502865]&maxDistance=500",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "q",
-													"value": "\"Golibar Square\""
-												},
-												{
-													"key": "geoproperty",
-													"value": "location"
-												},
-												{
-													"key": "georel",
-													"value": "within"
-												},
-												{
-													"key": "geometry",
-													"value": "Point"
-												},
-												{
-													"key": "coordinates",
-													"value": "[73.878603,18.502865]"
-												},
-												{
-													"key": "maxDistance",
-													"value": "500"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 029d: 200 - GeoAttribute (filter)",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"type\", \"urn:dx:cat:Success\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?property=\"[location.address]\"&value=\"[[pune,delhi]]\"&geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&filter=[tags,id,location.geometry.coordinates]",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "property",
-													"value": "\"[location.address]\""
-												},
-												{
-													"key": "value",
-													"value": "\"[[pune,delhi]]\""
-												},
-												{
-													"key": "geoproperty",
-													"value": "location"
-												},
-												{
-													"key": "georel",
-													"value": "within"
-												},
-												{
-													"key": "geometry",
-													"value": "Polygon"
-												},
-												{
-													"key": "coordinates",
-													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
-												},
-												{
-													"key": "filter",
-													"value": "[tags,id,location.geometry.coordinates]"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 029e: 200 - GeoText (filter)",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?q=\"Golibar Square\"&geoproperty=location&georel=within&geometry=Point&coordinates=[73.878603,18.502865]&maxDistance=500&filter=[tags,id,location.geometry.coordinates]",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "q",
-													"value": "\"Golibar Square\""
-												},
-												{
-													"key": "geoproperty",
-													"value": "location"
-												},
-												{
-													"key": "georel",
-													"value": "within"
-												},
-												{
-													"key": "geometry",
-													"value": "Point"
-												},
-												{
-													"key": "coordinates",
-													"value": "[73.878603,18.502865]"
-												},
-												{
-													"key": "maxDistance",
-													"value": "500"
-												},
-												{
-													"key": "filter",
-													"value": "[tags,id,location.geometry.coordinates]"
-												}
-											]
-										},
-										"description": "Success-3 GeoText (filter)"
-									},
-									"response": []
-								},
-								{
-									"name": "Test 029f: 200 - AttributeFilter",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"type\", \"urn:dx:cat:Success\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?property=\"[location.address]\"&value=\"[[pune,delhi]]\"&filter=[tags,id,location.geometry.coordinates]",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "property",
-													"value": "\"[location.address]\""
-												},
-												{
-													"key": "value",
-													"value": "\"[[pune,delhi]]\""
-												},
-												{
-													"key": "filter",
-													"value": "[tags,id,location.geometry.coordinates]"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 029g: 200 - AttributeText",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?q=\"Golibar Square\"&property=\"[tags, deviceId.keyword]\"&value=\"[[aqm],[2353b250-df9a-4108-8e2c-240955969d7e]]\"",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "q",
-													"value": "\"Golibar Square\""
-												},
-												{
-													"key": "property",
-													"value": "\"[tags, deviceId.keyword]\""
-												},
-												{
-													"key": "value",
-													"value": "\"[[aqm],[2353b250-df9a-4108-8e2c-240955969d7e]]\""
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 029g: 200 - AttributeText (filter)",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?q=\"Golibar Square\"&property=\"[tags, deviceId.keyword]\"&value=\"[[aqm],[2353b250-df9a-4108-8e2c-240955969d7e]]\"&filter=[tags,id,location.geometry.coordinates]",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "q",
-													"value": "\"Golibar Square\""
-												},
-												{
-													"key": "property",
-													"value": "\"[tags, deviceId.keyword]\""
-												},
-												{
-													"key": "value",
-													"value": "\"[[aqm],[2353b250-df9a-4108-8e2c-240955969d7e]]\""
-												},
-												{
-													"key": "filter",
-													"value": "[tags,id,location.geometry.coordinates]"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 029h: 200 - TagsFilter",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?property=\"[tags]\"&value=\"[[aqm]]\"&filter=[tags,id,location.geometry.coordinates]",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "property",
-													"value": "\"[tags]\""
-												},
-												{
-													"key": "value",
-													"value": "\"[[aqm]]\""
-												},
-												{
-													"key": "filter",
-													"value": "[tags,id,location.geometry.coordinates]"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 029i: 200 - TextFilter",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?q=\"Golibar Square\"&filter=[tags,id,location.geometry.coordinates]",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "q",
-													"value": "\"Golibar Square\""
-												},
-												{
-													"key": "filter",
-													"value": "[tags,id,location.geometry.coordinates]"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 029j: 200 - GeoTextAttribute",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?property=\"[location.address]\"&value=\"[[pune,delhi]]\"&geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&q=\"Chandani Square\"",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "property",
-													"value": "\"[location.address]\""
-												},
-												{
-													"key": "value",
-													"value": "\"[[pune,delhi]]\""
-												},
-												{
-													"key": "geoproperty",
-													"value": "location"
-												},
-												{
-													"key": "georel",
-													"value": "within"
-												},
-												{
-													"key": "geometry",
-													"value": "Polygon"
-												},
-												{
-													"key": "coordinates",
-													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
-												},
-												{
-													"key": "q",
-													"value": "\"Chandani Square\""
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 029k: 200 - GeoTextAttribute (filter)",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?property=\"[location.address]\"&value=\"[[pune,delhi]]\"&geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&q=\"Chandani Square\"&filter=[tags,id,location.geometry.coordinates]",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "property",
-													"value": "\"[location.address]\""
-												},
-												{
-													"key": "value",
-													"value": "\"[[pune,delhi]]\""
-												},
-												{
-													"key": "geoproperty",
-													"value": "location"
-												},
-												{
-													"key": "georel",
-													"value": "within"
-												},
-												{
-													"key": "geometry",
-													"value": "Polygon"
-												},
-												{
-													"key": "coordinates",
-													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
-												},
-												{
-													"key": "q",
-													"value": "\"Chandani Square\""
-												},
-												{
-													"key": "filter",
-													"value": "[tags,id,location.geometry.coordinates]"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 030a: 400 - Response filter",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&filter=[id,name,tags,deviceId,resourceServer,provider,location,address,type,itemStatus,authServerInfo]",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "geoproperty",
-													"value": "location"
-												},
-												{
-													"key": "georel",
-													"value": "within"
-												},
-												{
-													"key": "geometry",
-													"value": "Polygon"
-												},
-												{
-													"key": "coordinates",
-													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
-												},
-												{
-													"key": "filter",
-													"value": "[id,name,tags,deviceId,resourceServer,provider,location,address,type,itemStatus,authServerInfo]"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 030b : 400 - Exceed limit value",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&filter=[id,name]&limit=10001",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "geoproperty",
-													"value": "location"
-												},
-												{
-													"key": "georel",
-													"value": "within"
-												},
-												{
-													"key": "geometry",
-													"value": "Polygon"
-												},
-												{
-													"key": "coordinates",
-													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
-												},
-												{
-													"key": "filter",
-													"value": "[id,name]"
-												},
-												{
-													"key": "limit",
-													"value": "10001"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Test 030c : 400 - Exceed offset value",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Response status\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response header\", function () {\r",
-													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check response body\", function () {    \r",
-													"    const body = pm.response.json();\r",
-													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&filter=[id,name]&limit=1001&offset=1010101",
-											"host": [
-												"{{host}}{{base}}"
-											],
-											"path": [
-												"search"
-											],
-											"query": [
-												{
-													"key": "geoproperty",
-													"value": "location"
-												},
-												{
-													"key": "georel",
-													"value": "within"
-												},
-												{
-													"key": "geometry",
-													"value": "Polygon"
-												},
-												{
-													"key": "coordinates",
-													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
-												},
-												{
-													"key": "filter",
-													"value": "[id,name]"
-												},
-												{
-													"key": "limit",
-													"value": "1001"
-												},
-												{
-													"key": "offset",
-													"value": "1010101"
-												}
-											]
-										}
-									},
-									"response": []
 								}
 							]
 						},
@@ -9041,6 +7417,1906 @@
 												{
 													"key": "coordinates",
 													"value": "[[73.874537,18.528311],[73.874537,18.528311]]"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "L2",
+					"item": [
+						{
+							"name": "Complex Search",
+							"item": [
+								{
+									"name": "Test : 200 - Attribute + Geo (G0 and G1)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\", \"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?property=\"[location.address]\"&value=\"[[pune,delhi]]\"&geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "property",
+													"value": "\"[location.address]\""
+												},
+												{
+													"key": "value",
+													"value": "\"[[pune,delhi]]\""
+												},
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "Polygon"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Attribute + Text (G0 and G1)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?q=\"Golibar Square\"&property=\"[instance, itemStatus]\"&value=\"[[pune],[ACTIVE]]\"",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "q",
+													"value": "\"Golibar Square\""
+												},
+												{
+													"key": "property",
+													"value": "\"[instance, itemStatus]\""
+												},
+												{
+													"key": "value",
+													"value": "\"[[pune],[ACTIVE]]\""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Attribute + Geo + Text (G0 and G1)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?property=\"[location.address]\"&value=\"[[pune,delhi]]\"&geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&q=\"Chandani Square\"",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "property",
+													"value": "\"[location.address]\""
+												},
+												{
+													"key": "value",
+													"value": "\"[[pune,delhi]]\""
+												},
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "Polygon"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
+												},
+												{
+													"key": "q",
+													"value": "\"Chandani Square\""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Tag + Geo (G0 and G1)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\", \"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?property=\"[tags]\"&value=\"[[pollution]]\"&geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "property",
+													"value": "\"[tags]\""
+												},
+												{
+													"key": "value",
+													"value": "\"[[pollution]]\""
+												},
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "Polygon"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Tag + Text (G0 and G1)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?q=\"Golibar Square\"&property=\"[tags]\"&value=\"[[aqm]]\"",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "q",
+													"value": "\"Golibar Square\""
+												},
+												{
+													"key": "property",
+													"value": "\"[tags]\""
+												},
+												{
+													"key": "value",
+													"value": "\"[[aqm]]\""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Tag + Geo + Text (G0 and G1)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?property=\"[tags]\"&value=\"[[pollution]]\"&geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&q=\"Chandani Square\"",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "property",
+													"value": "\"[tags]\""
+												},
+												{
+													"key": "value",
+													"value": "\"[[pollution]]\""
+												},
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "Polygon"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
+												},
+												{
+													"key": "q",
+													"value": "\"Chandani Square\""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Geo + Text (within G1)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?q=\"Golibar Square\"&geoproperty=location&georel=within&geometry=Point&coordinates=[73.878603,18.502865]&maxDistance=500",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "q",
+													"value": "\"Golibar Square\""
+												},
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "Point"
+												},
+												{
+													"key": "coordinates",
+													"value": "[73.878603,18.502865]"
+												},
+												{
+													"key": "maxDistance",
+													"value": "500"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Response Filtering",
+							"item": [
+								{
+									"name": "Test : 200 - Attribute Search Response FIlter",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?property=\"[tags,location.address]\"&value=\"[[aqm, flood], [pune,delhi]]\"&filter=[deviceModel.modelName, location.geometry]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "property",
+													"value": "\"[tags,location.address]\""
+												},
+												{
+													"key": "value",
+													"value": "\"[[aqm, flood], [pune,delhi]]\""
+												},
+												{
+													"key": "filter",
+													"value": "[deviceModel.modelName, location.geometry]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Attribute Search Response Filter and Limit+Offset",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?property=\"[tags,location.address]\"&value=\"[[aqm, flood], [pune,delhi]]\"&filter=[deviceModel.modelName]&limit=3&offset=0",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "property",
+													"value": "\"[tags,location.address]\""
+												},
+												{
+													"key": "value",
+													"value": "\"[[aqm, flood], [pune,delhi]]\""
+												},
+												{
+													"key": "filter",
+													"value": "[deviceModel.modelName]"
+												},
+												{
+													"key": "limit",
+													"value": "3"
+												},
+												{
+													"key": "offset",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - List Search with Limit",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/list/tags?limit=10",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"list",
+												"tags"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Tag Search Response Filtering",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?property=\"[tags]\"&value=\"[[pollution]]\"&filter=[id,tags]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "property",
+													"value": "\"[tags]\""
+												},
+												{
+													"key": "value",
+													"value": "\"[[pollution]]\""
+												},
+												{
+													"key": "filter",
+													"value": "[id,tags]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Tag Search Response Filtering and Limit+Offset",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?property=\"[tags]\"&value=\"[[pollution]]\"&filter=[id,tags]&limit=100&offset=0",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "property",
+													"value": "\"[tags]\""
+												},
+												{
+													"key": "value",
+													"value": "\"[[pollution]]\""
+												},
+												{
+													"key": "filter",
+													"value": "[id,tags]"
+												},
+												{
+													"key": "limit",
+													"value": "100"
+												},
+												{
+													"key": "offset",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Relationship(Resource) API Response Filter",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\",  \"urn:dx:cat:Success\");\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/relationship?id=datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.io/aqm-bosch-climo&rel=resource&filter=[location.address]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"relationship"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.io/aqm-bosch-climo"
+												},
+												{
+													"key": "rel",
+													"value": "resource"
+												},
+												{
+													"key": "filter",
+													"value": "[location.address]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Relationship(Resource) API Response Filter and Limit+Offset",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\",  \"urn:dx:cat:Success\");\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/relationship?id=datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.io/aqm-bosch-climo&rel=resource&filter=[location.address]&limit=5&offset=1",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"relationship"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.io/aqm-bosch-climo"
+												},
+												{
+													"key": "rel",
+													"value": "resource"
+												},
+												{
+													"key": "filter",
+													"value": "[location.address]"
+												},
+												{
+													"key": "limit",
+													"value": "5"
+												},
+												{
+													"key": "offset",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Relationship Search with Limit+Offset",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/relsearch?value=\"[[openAPI]]\"&relationship=\"[resourceGroup.accessObjectInfo.accessObjectType]\"&limit=50&offset=10",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"relsearch"
+											],
+											"query": [
+												{
+													"key": "value",
+													"value": "\"[[openAPI]]\""
+												},
+												{
+													"key": "relationship",
+													"value": "\"[resourceGroup.accessObjectInfo.accessObjectType]\""
+												},
+												{
+													"key": "limit",
+													"value": "50"
+												},
+												{
+													"key": "offset",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Geo(Circle) Search Response Filter",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=within&maxDistance=5000&geometry=Point&coordinates=[73.927285,18.502712]&filter=[id, description]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "maxDistance",
+													"value": "5000"
+												},
+												{
+													"key": "geometry",
+													"value": "Point"
+												},
+												{
+													"key": "coordinates",
+													"value": "[73.927285,18.502712]"
+												},
+												{
+													"key": "filter",
+													"value": "[id, description]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Geo(Circle) Search Response Filter and Limit+Offset",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=within&maxDistance=5000&geometry=Point&coordinates=[73.927285,18.502712]&filter=[id, description]&limit=10&offset=0",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "maxDistance",
+													"value": "5000"
+												},
+												{
+													"key": "geometry",
+													"value": "Point"
+												},
+												{
+													"key": "coordinates",
+													"value": "[73.927285,18.502712]"
+												},
+												{
+													"key": "filter",
+													"value": "[id, description]"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "offset",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Geo(Polygon) Search Response Filter",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&filter=[id, description]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "Polygon"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
+												},
+												{
+													"key": "filter",
+													"value": "[id, description]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Geo(Polygon) Search Response Filter and Limit+Offset",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&filter=[id, description]&limit=10&offset=0",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "Polygon"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
+												},
+												{
+													"key": "filter",
+													"value": "[id, description]"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "offset",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Geo(LineString) Search Response Filter",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\", \"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=intersects&geometry=LineString&coordinates=[[73.874537,18.528311],[73.836808,18.572797],[73.876484,18.525007]]&filter=[id, description]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "intersects"
+												},
+												{
+													"key": "geometry",
+													"value": "LineString"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[73.874537,18.528311],[73.836808,18.572797],[73.876484,18.525007]]"
+												},
+												{
+													"key": "filter",
+													"value": "[id, description]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Geo(LineString) Search Response Filter and Limit+Offset",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\", \"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=intersects&geometry=LineString&coordinates=[[73.874537,18.528311],[73.836808,18.572797],[73.876484,18.525007]]&filter=[id, description]&limit=10&offset=0",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "intersects"
+												},
+												{
+													"key": "geometry",
+													"value": "LineString"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[73.874537,18.528311],[73.836808,18.572797],[73.876484,18.525007]]"
+												},
+												{
+													"key": "filter",
+													"value": "[id, description]"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "offset",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Geo(BBox) Search Response Filter",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=within&geometry=bbox&coordinates=[[73.8420,18.5305],[73.8665,18.5126]]&filter=[id, description]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "bbox"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[73.8420,18.5305],[73.8665,18.5126]]"
+												},
+												{
+													"key": "filter",
+													"value": "[id, description]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Geo(BBox) Search Response Filter and Limit+Offset",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=within&geometry=bbox&coordinates=[[73.8420,18.5305],[73.8665,18.5126]]&filter=[id, description]&limit=10&offset=0",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "bbox"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[73.8420,18.5305],[73.8665,18.5126]]"
+												},
+												{
+													"key": "filter",
+													"value": "[id, description]"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "offset",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Text Search Response Filter",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\", \"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?q=\"Bosch Climo\"&filter=[id, description]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "q",
+													"value": "\"Bosch Climo\""
+												},
+												{
+													"key": "filter",
+													"value": "[id, description]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - Text Search Response Filter and Limit+Offset",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\", \"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?q=\"Bosch Climo\"&filter=[id, description]&limit=10&offset=0",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "q",
+													"value": "\"Bosch Climo\""
+												},
+												{
+													"key": "filter",
+													"value": "[id, description]"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "offset",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - GeoAttribute Response Filter",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\", \"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?property=\"[location.address]\"&value=\"[[pune,delhi]]\"&geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&filter=[tags,id,location.geometry.coordinates]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "property",
+													"value": "\"[location.address]\""
+												},
+												{
+													"key": "value",
+													"value": "\"[[pune,delhi]]\""
+												},
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "Polygon"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
+												},
+												{
+													"key": "filter",
+													"value": "[tags,id,location.geometry.coordinates]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - GeoText Response Filter",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?q=\"Golibar Square\"&geoproperty=location&georel=within&geometry=Point&coordinates=[73.878603,18.502865]&maxDistance=500&filter=[tags,id,location.geometry.coordinates]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "q",
+													"value": "\"Golibar Square\""
+												},
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "Point"
+												},
+												{
+													"key": "coordinates",
+													"value": "[73.878603,18.502865]"
+												},
+												{
+													"key": "maxDistance",
+													"value": "500"
+												},
+												{
+													"key": "filter",
+													"value": "[tags,id,location.geometry.coordinates]"
+												}
+											]
+										},
+										"description": "Success-3 GeoText (filter)"
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - AttributeText Response Filter",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?q=\"Golibar Square\"&property=\"[tags, deviceId.keyword]\"&value=\"[[aqm],[2353b250-df9a-4108-8e2c-240955969d7e]]\"&filter=[tags,id,location.geometry.coordinates]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "q",
+													"value": "\"Golibar Square\""
+												},
+												{
+													"key": "property",
+													"value": "\"[tags, deviceId.keyword]\""
+												},
+												{
+													"key": "value",
+													"value": "\"[[aqm],[2353b250-df9a-4108-8e2c-240955969d7e]]\""
+												},
+												{
+													"key": "filter",
+													"value": "[tags,id,location.geometry.coordinates]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 200 - GeoTextAttribute Response Filter",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"type\",\"urn:dx:cat:Success\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?property=\"[location.address]\"&value=\"[[pune,delhi]]\"&geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&q=\"Chandani Square\"&filter=[tags,id,location.geometry.coordinates]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "property",
+													"value": "\"[location.address]\""
+												},
+												{
+													"key": "value",
+													"value": "\"[[pune,delhi]]\""
+												},
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "Polygon"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
+												},
+												{
+													"key": "q",
+													"value": "\"Chandani Square\""
+												},
+												{
+													"key": "filter",
+													"value": "[tags,id,location.geometry.coordinates]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 400 - Response filter (too many filters)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&filter=[id,name,tags,deviceId,resourceServer,provider,location,address,type,itemStatus,authServerInfo]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "Polygon"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
+												},
+												{
+													"key": "filter",
+													"value": "[id,name,tags,deviceId,resourceServer,provider,location,address,type,itemStatus,authServerInfo]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 400 - Response filter Invalid Filters",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&filter=[id,name,tags,deviceId,resourceServer,provider,location,@ddre$$]",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "Polygon"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
+												},
+												{
+													"key": "filter",
+													"value": "[id,name,tags,deviceId,resourceServer,provider,location,@ddre$$]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test  : 400 - Exceed limit value",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&filter=[id,name]&limit=10001",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "Polygon"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
+												},
+												{
+													"key": "filter",
+													"value": "[id,name]"
+												},
+												{
+													"key": "limit",
+													"value": "10001"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test : 400 - Exceed offset value",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response header\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check response body\", function () {    \r",
+													"    const body = pm.response.json();\r",
+													"    pm.expect(body).to.have.property(\"title\", \"failed\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{base}}/search?geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]&filter=[id,name]&limit=1001&offset=1010101",
+											"host": [
+												"{{host}}{{base}}"
+											],
+											"path": [
+												"search"
+											],
+											"query": [
+												{
+													"key": "geoproperty",
+													"value": "location"
+												},
+												{
+													"key": "georel",
+													"value": "within"
+												},
+												{
+													"key": "geometry",
+													"value": "Polygon"
+												},
+												{
+													"key": "coordinates",
+													"value": "[[[75.9,14.5],[72,13],[73,20],[75.9,14.5]]]"
+												},
+												{
+													"key": "filter",
+													"value": "[id,name]"
+												},
+												{
+													"key": "limit",
+													"value": "1001"
+												},
+												{
+													"key": "offset",
+													"value": "1010101"
 												}
 											]
 										}
