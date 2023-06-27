@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b446ef39-bb40-43bf-a7a8-df08230136a6",
+		"_postman_id": "92845190-6f69-4399-aa2c-e9013a742422",
 		"name": "IS-19003-DX-CATALOGUE",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17194681"
@@ -4553,7 +4553,7 @@
 											"response": []
 										},
 										{
-											"name": "Test 022a : 400 - Search Polygon invalidValue-2",
+											"name": "Test 022b : 400 - Search Polygon invalidValue-2",
 											"event": [
 												{
 													"listen": "test",
@@ -4617,7 +4617,7 @@
 											"response": []
 										},
 										{
-											"name": "Test 022b: 400 - Search Polygon invalidValue-3",
+											"name": "Test 022c: 400 - Search Polygon invalidValue-3",
 											"event": [
 												{
 													"listen": "test",
@@ -6486,7 +6486,7 @@
 							"name": "Count APIs",
 							"item": [
 								{
-									"name": "Test 031a: 200 - Count based on Text",
+									"name": "Test 029a: 200 - Count based on Text",
 									"event": [
 										{
 											"listen": "test",
@@ -6531,7 +6531,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 031b: 200 - Count Text using SpecialChar[*]",
+									"name": "Test 029b: 200 - Count Text using SpecialChar[*]",
 									"event": [
 										{
 											"listen": "test",
@@ -6576,7 +6576,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 031c: 200 - Count Circle(Point)",
+									"name": "Test 029c: 200 - Count Circle(Point)",
 									"event": [
 										{
 											"listen": "test",
@@ -6644,7 +6644,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 031d : 200 - Count Polygons",
+									"name": "Test 029d : 200 - Count Polygons",
 									"event": [
 										{
 											"listen": "test",
@@ -6708,7 +6708,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 031e : 200 - Count LineString",
+									"name": "Test 029e : 200 - Count LineString",
 									"event": [
 										{
 											"listen": "test",
@@ -6765,7 +6765,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 031f : 200 - Count Bbox",
+									"name": "Test 029f : 200 - Count Bbox",
 									"event": [
 										{
 											"listen": "test",
@@ -6822,7 +6822,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 032a : 400 - Count Text InvalidSyntax-1",
+									"name": "Test 030a : 400 - Count Text InvalidSyntax-1",
 									"event": [
 										{
 											"listen": "test",
@@ -6879,7 +6879,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 032b : 400 - Count Text InvalidSyntax-2",
+									"name": "Test 030b : 400 - Count Text InvalidSyntax-2",
 									"event": [
 										{
 											"listen": "test",
@@ -6932,7 +6932,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 032c : 400 - Count Circle(Point)",
+									"name": "Test 030c : 400 - Count Circle(Point)",
 									"event": [
 										{
 											"listen": "test",
@@ -7000,7 +7000,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 032d : 400 - Count Circle(Point)",
+									"name": "Test 030d : 400 - Count Circle(Point)",
 									"event": [
 										{
 											"listen": "test",
@@ -7068,7 +7068,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 032e: 400 - Count Polygon",
+									"name": "Test 030e: 400 - Count Polygon",
 									"event": [
 										{
 											"listen": "test",
@@ -7132,7 +7132,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 032f : 400 - Count Polygon",
+									"name": "Test 030f : 400 - Count Polygon",
 									"event": [
 										{
 											"listen": "test",
@@ -7196,7 +7196,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 032g : 400 - Count LineString",
+									"name": "Test 030g : 400 - Count LineString",
 									"event": [
 										{
 											"listen": "test",
@@ -7253,7 +7253,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 032h : 400 - Count LineString",
+									"name": "Test 030h : 400 - Count LineString",
 									"event": [
 										{
 											"listen": "test",
@@ -7310,7 +7310,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 032i : 400 - Count Bbox",
+									"name": "Test 030i : 400 - Count Bbox",
 									"event": [
 										{
 											"listen": "test",
@@ -7367,7 +7367,7 @@
 									"response": []
 								},
 								{
-									"name": "Test 032j : 400 - Count Bbox",
+									"name": "Test 030j : 400 - Count Bbox",
 									"event": [
 										{
 											"listen": "test",
@@ -7434,7 +7434,7 @@
 							"name": "Complex Search",
 							"item": [
 								{
-									"name": "Test : 200 - Attribute + Geo (G0 and G1)",
+									"name": "Test 031a: 200 - Attribute + Geo (G0 and G1)",
 									"event": [
 										{
 											"listen": "test",
@@ -7499,7 +7499,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Attribute + Text (G0 and G1)",
+									"name": "Test 031a: 200 - Attribute + Text (G0 and G1)",
 									"event": [
 										{
 											"listen": "test",
@@ -7552,7 +7552,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Attribute + Geo + Text (G0 and G1)",
+									"name": "Test 031c: 200 - Attribute + Geo + Text (G0 and G1)",
 									"event": [
 										{
 											"listen": "test",
@@ -7621,7 +7621,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Tag + Geo (G0 and G1)",
+									"name": "Test 031d: 200 - Tag + Geo (G0 and G1)",
 									"event": [
 										{
 											"listen": "test",
@@ -7686,7 +7686,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Tag + Text (G0 and G1)",
+									"name": "Test 031e: 200 - Tag + Text (G0 and G1)",
 									"event": [
 										{
 											"listen": "test",
@@ -7739,7 +7739,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Tag + Geo + Text (G0 and G1)",
+									"name": "Test 031f: 200 - Tag + Geo + Text (G0 and G1)",
 									"event": [
 										{
 											"listen": "test",
@@ -7808,7 +7808,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Geo + Text (within G1)",
+									"name": "Test 031g: 200 - Geo + Text (within G1)",
 									"event": [
 										{
 											"listen": "test",
@@ -7878,7 +7878,7 @@
 							"name": "Response Filtering",
 							"item": [
 								{
-									"name": "Test : 200 - Attribute Search Response FIlter",
+									"name": "Test 032a: 200 - Attribute Search Response FIlter",
 									"request": {
 										"method": "GET",
 										"header": [],
@@ -7909,7 +7909,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Attribute Search Response Filter and Limit+Offset",
+									"name": "Test 032b: 200 - Attribute Search Response Filter and Limit+Offset",
 									"request": {
 										"method": "GET",
 										"header": [],
@@ -7948,7 +7948,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - List Search with Limit",
+									"name": "Test 032c: 200 - List Search with Limit",
 									"request": {
 										"method": "GET",
 										"header": [],
@@ -7972,7 +7972,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Tag Search Response Filtering",
+									"name": "Test 032d: 200 - Tag Search Response Filtering",
 									"request": {
 										"method": "GET",
 										"header": [],
@@ -8003,7 +8003,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Tag Search Response Filtering and Limit+Offset",
+									"name": "Test 032e: 200 - Tag Search Response Filtering and Limit+Offset",
 									"request": {
 										"method": "GET",
 										"header": [],
@@ -8042,7 +8042,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Relationship(Resource) API Response Filter",
+									"name": "Test 032f: 200 - Relationship(Resource) API Response Filter",
 									"event": [
 										{
 											"listen": "test",
@@ -8097,7 +8097,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Relationship(Resource) API Response Filter and Limit+Offset",
+									"name": "Test 032g: 200 - Relationship(Resource) API Response Filter and Limit+Offset",
 									"event": [
 										{
 											"listen": "test",
@@ -8160,7 +8160,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Relationship Search with Limit+Offset",
+									"name": "Test 032h: 200 - Relationship Search with Limit+Offset",
 									"request": {
 										"method": "GET",
 										"header": [],
@@ -8195,7 +8195,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Geo(Circle) Search Response Filter",
+									"name": "Test 032i: 200 - Geo(Circle) Search Response Filter",
 									"request": {
 										"method": "GET",
 										"header": [],
@@ -8238,7 +8238,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Geo(Circle) Search Response Filter and Limit+Offset",
+									"name": "Test 032j: 200 - Geo(Circle) Search Response Filter and Limit+Offset",
 									"request": {
 										"method": "GET",
 										"header": [],
@@ -8289,7 +8289,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Geo(Polygon) Search Response Filter",
+									"name": "Test 032k: 200 - Geo(Polygon) Search Response Filter",
 									"event": [
 										{
 											"listen": "test",
@@ -8357,7 +8357,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Geo(Polygon) Search Response Filter and Limit+Offset",
+									"name": "Test 032l: 200 - Geo(Polygon) Search Response Filter and Limit+Offset",
 									"event": [
 										{
 											"listen": "test",
@@ -8433,7 +8433,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Geo(LineString) Search Response Filter",
+									"name": "Test 032m: 200 - Geo(LineString) Search Response Filter",
 									"event": [
 										{
 											"listen": "test",
@@ -8494,7 +8494,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Geo(LineString) Search Response Filter and Limit+Offset",
+									"name": "Test 032n: 200 - Geo(LineString) Search Response Filter and Limit+Offset",
 									"event": [
 										{
 											"listen": "test",
@@ -8563,7 +8563,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Geo(BBox) Search Response Filter",
+									"name": "Test 032o: 200 - Geo(BBox) Search Response Filter",
 									"event": [
 										{
 											"listen": "test",
@@ -8624,7 +8624,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Geo(BBox) Search Response Filter and Limit+Offset",
+									"name": "Test 032p: 200 - Geo(BBox) Search Response Filter and Limit+Offset",
 									"event": [
 										{
 											"listen": "test",
@@ -8693,7 +8693,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Text Search Response Filter",
+									"name": "Test 032q: 200 - Text Search Response Filter",
 									"event": [
 										{
 											"listen": "test",
@@ -8742,7 +8742,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - Text Search Response Filter and Limit+Offset",
+									"name": "Test 032r: 200 - Text Search Response Filter and Limit+Offset",
 									"event": [
 										{
 											"listen": "test",
@@ -8799,7 +8799,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - GeoAttribute Response Filter",
+									"name": "Test 032s: 200 - GeoAttribute Response Filter",
 									"event": [
 										{
 											"listen": "test",
@@ -8868,7 +8868,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - GeoText Response Filter",
+									"name": "Test 032t: 200 - GeoText Response Filter",
 									"event": [
 										{
 											"listen": "test",
@@ -8938,7 +8938,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - AttributeText Response Filter",
+									"name": "Test 032u: 200 - AttributeText Response Filter",
 									"event": [
 										{
 											"listen": "test",
@@ -8995,7 +8995,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 200 - GeoTextAttribute Response Filter",
+									"name": "Test 032v: 200 - GeoTextAttribute Response Filter",
 									"event": [
 										{
 											"listen": "test",
@@ -9068,7 +9068,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 400 - Response filter (too many filters)",
+									"name": "Test 033a: 400 - Response filter (too many filters)",
 									"event": [
 										{
 											"listen": "test",
@@ -9129,7 +9129,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 400 - Response filter Invalid Filters",
+									"name": "Test 033b: 400 - Response filter Invalid Filters",
 									"event": [
 										{
 											"listen": "test",
@@ -9255,7 +9255,7 @@
 									"response": []
 								},
 								{
-									"name": "Test : 400 - Exceed offset value",
+									"name": "Test 033c: 400 - Exceed offset value",
 									"event": [
 										{
 											"listen": "test",
