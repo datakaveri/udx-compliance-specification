@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e0d15b5e-3c60-4384-b352-189d64eb85b9",
+		"_postman_id": "8592151d-f6cf-4c49-bd6c-9fd74c3ddef6",
 		"name": "IS 18003 Part 3: Resource Access Service (Latest)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "20457128"
@@ -58,12 +58,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://authvertx.iudx.io/auth/v1/token",
+							"raw": "https://{{auth-url}}/auth/v1/token",
 							"protocol": "https",
 							"host": [
-								"authvertx",
-								"iudx",
-								"io"
+								"{{auth-url}}"
 							],
 							"path": [
 								"auth",
@@ -123,12 +121,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://authvertx.iudx.io/auth/v1/token",
+							"raw": "https://{{auth-url}}/auth/v1/token",
 							"protocol": "https",
 							"host": [
-								"authvertx",
-								"iudx",
-								"io"
+								"{{auth-url}}"
 							],
 							"path": [
 								"auth",
@@ -145,13 +141,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
 								"exec": [
 									"const responseJson=pm.response.json();",
 									"pm.globals.set(\"consumerToken\", responseJson.token);",
 									"pm.globals.set(\"adapterToken\", responseJson.token);",
 									""
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -189,12 +185,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://authvertx.iudx.io/auth/v1/token",
+							"raw": "https://{{auth-url}}/auth/v1/token",
 							"protocol": "https",
 							"host": [
-								"authvertx",
-								"iudx",
-								"io"
+								"{{auth-url}}"
 							],
 							"path": [
 								"auth",
@@ -252,7 +246,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/temporal/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&timerel=between&time=2020-10-18T14:20:00Z&endtime=2020-10-19T14:20:00Z",
+									"raw": "{{base_url}}/ngsi-ld/v1/temporal/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&timerel=between&time=2020-11-22T12:59:59Z&endtime=2020-11-23T19:00:00Z",
 									"host": [
 										"{{base_url}}"
 									],
@@ -273,11 +267,11 @@
 										},
 										{
 											"key": "time",
-											"value": "2020-10-18T14:20:00Z"
+											"value": "2020-11-22T12:59:59Z"
 										},
 										{
 											"key": "endtime",
-											"value": "2020-10-19T14:20:00Z"
+											"value": "2020-11-23T19:00:00Z"
 										}
 									]
 								}
@@ -497,7 +491,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											"// Test the response code\r",
 											"pm.test(\"response is 200 (OK)\", function () {\r",
@@ -516,7 +509,8 @@
 											"    const resultsjsonData = body.results[0];\r",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"b58da193-23d9-43eb-b98a-a103d4b6103c\");\r",
 											"});"
-										]
+										],
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -530,7 +524,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/temporal/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&timerel=before&time=2020-10-19T12:00:00Z",
+									"raw": "{{base_url}}/ngsi-ld/v1/temporal/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&timerel=before&time=2021-09-22T13:00:01Z",
 									"host": [
 										"{{base_url}}"
 									],
@@ -551,7 +545,7 @@
 										},
 										{
 											"key": "time",
-											"value": "2020-10-19T12:00:00Z"
+											"value": "2021-09-22T13:00:01Z"
 										},
 										{
 											"key": "",
@@ -799,7 +793,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											"// Test the response code\r",
 											"pm.test(\"response is 200 (OK)\", function () {\r",
@@ -818,7 +811,8 @@
 											"    const resultsjsonData = body.results[0];\r",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"b58da193-23d9-43eb-b98a-a103d4b6103c\");\r",
 											"});"
-										]
+										],
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -832,7 +826,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/temporal/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&timerel=after&time=2020-10-18T14:20:01Z",
+									"raw": "{{base_url}}/ngsi-ld/v1/temporal/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&timerel=after&time=2020-09-22T13:00:01Z",
 									"host": [
 										"{{base_url}}"
 									],
@@ -853,7 +847,7 @@
 										},
 										{
 											"key": "time",
-											"value": "2020-10-18T14:20:01Z"
+											"value": "2020-09-22T13:00:01Z"
 										}
 									]
 								}
@@ -1094,7 +1088,7 @@
 											"    const body = pm.response.json();\r",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");\r",
 											"    const resultsjsonData = body.results[0];\r",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 95);\r",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70014);\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -1111,7 +1105,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/temporal/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&timerel=between&time=2020-10-18T14:20:00Z&endtime=2020-10-19T14:20:00Z&options=count",
+									"raw": "{{base_url}}/ngsi-ld/v1/temporal/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&timerel=between&time=2020-09-21T14:20:00Z&endtime=2020-10-19T14:20:00Z&options=count",
 									"host": [
 										"{{base_url}}"
 									],
@@ -1132,7 +1126,7 @@
 										},
 										{
 											"key": "time",
-											"value": "2020-10-18T14:20:00Z"
+											"value": "2020-09-21T14:20:00Z"
 										},
 										{
 											"key": "endtime",
@@ -1388,7 +1382,7 @@
 											"    const body = pm.response.json();\r",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");\r",
 											"    const resultsjsonData = body.results[0];\r",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 957);\r",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70014);\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -1686,7 +1680,7 @@
 											"    const body = pm.response.json();\r",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");\r",
 											"    const resultsjsonData = body.results[0];\r",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 951);\r",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 779);\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -2289,7 +2283,7 @@
 											"    const body = pm.response.json();\r",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");\r",
 											"    const resultsjsonData = body.results[0];\r",
-											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\");\r",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 21);\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -2625,7 +2619,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel<16.0",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel<16.0;measuredDistance>=14.85",
 									"host": [
 										"{{base_url}}"
 									],
@@ -2641,7 +2635,7 @@
 										},
 										{
 											"key": "q",
-											"value": "referenceLevel<16.0"
+											"value": "referenceLevel<16.0;measuredDistance>=14.85"
 										},
 										{
 											"key": "",
@@ -2874,7 +2868,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											"// Test the response code",
 											"pm.test(\"response is 200 (OK)\", function () {",
@@ -2892,11 +2885,11 @@
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"b58da193-23d9-43eb-b98a-a103d4b6103c\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"referenceLevel\", 15.9);",
 											"});",
 											"",
 											""
-										]
+										],
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -2910,7 +2903,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel>15.0",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel>16.0",
 									"host": [
 										"{{base_url}}"
 									],
@@ -2926,7 +2919,7 @@
 										},
 										{
 											"key": "q",
-											"value": "referenceLevel>15.0"
+											"value": "referenceLevel>16.0"
 										},
 										{
 											"key": "",
@@ -3176,7 +3169,6 @@
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"b58da193-23d9-43eb-b98a-a103d4b6103c\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"referenceLevel\", 15.9);",
 											"});",
 											"",
 											""
@@ -3195,7 +3187,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel==15.9",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel==115.9",
 									"host": [
 										"{{base_url}}"
 									],
@@ -3211,7 +3203,7 @@
 										},
 										{
 											"key": "q",
-											"value": "referenceLevel==15.9"
+											"value": "referenceLevel==115.9"
 										},
 										{
 											"key": "",
@@ -3461,7 +3453,7 @@
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"b58da193-23d9-43eb-b98a-a103d4b6103c\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"referenceLevel\", 15.9);",
+											"    pm.expect(resultsjsonData).to.have.property(\"referenceLevel\", 115.9);",
 											"});",
 											"",
 											""
@@ -3480,7 +3472,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel!=15.0",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel!=15.9",
 									"host": [
 										"{{base_url}}"
 									],
@@ -3496,7 +3488,7 @@
 										},
 										{
 											"key": "q",
-											"value": "referenceLevel!=15.0"
+											"value": "referenceLevel!=15.9"
 										},
 										{
 											"key": "",
@@ -3539,7 +3531,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel!=15.9",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel!=15.9;measuredDistance>=1489.0",
 									"host": [
 										"{{base_url}}"
 									],
@@ -3555,7 +3547,7 @@
 										},
 										{
 											"key": "q",
-											"value": "referenceLevel!=15.9"
+											"value": "referenceLevel!=15.9;measuredDistance>=1489.0"
 										},
 										{
 											"key": "",
@@ -3805,7 +3797,6 @@
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"b58da193-23d9-43eb-b98a-a103d4b6103c\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"referenceLevel\", 15.9);",
 											"});",
 											"",
 											""
@@ -3824,7 +3815,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel>=15.0",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel>=16.0",
 									"host": [
 										"{{base_url}}"
 									],
@@ -3840,7 +3831,7 @@
 										},
 										{
 											"key": "q",
-											"value": "referenceLevel>=15.0"
+											"value": "referenceLevel>=16.0"
 										},
 										{
 											"key": "",
@@ -4168,7 +4159,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel<=15.9",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel<=15.9;measuredDistance>=14.85",
 									"host": [
 										"{{base_url}}"
 									],
@@ -4184,7 +4175,7 @@
 										},
 										{
 											"key": "q",
-											"value": "referenceLevel<=15.9"
+											"value": "referenceLevel<=15.9;measuredDistance>=14.85"
 										},
 										{
 											"key": "",
@@ -4517,8 +4508,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"b58da193-23d9-43eb-b98a-a103d4b6103c\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"referenceLevel\", 15.9);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70010);",
 											"});",
 											"",
 											""
@@ -4856,8 +4846,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"b58da193-23d9-43eb-b98a-a103d4b6103c\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"referenceLevel\", 15.9);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70014);",
 											"});",
 											"",
 											""
@@ -4897,11 +4886,6 @@
 										{
 											"key": "options",
 											"value": "count"
-										},
-										{
-											"key": "",
-											"value": "",
-											"disabled": true
 										}
 									]
 								}
@@ -5190,8 +5174,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"b58da193-23d9-43eb-b98a-a103d4b6103c\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"referenceLevel\", 15.9);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70010);",
 											"});",
 											"",
 											""
@@ -5529,8 +5512,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"b58da193-23d9-43eb-b98a-a103d4b6103c\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"referenceLevel\", 15.9);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70014);",
 											"});",
 											"",
 											""
@@ -5607,7 +5589,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel!=15.9&options=count",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel!=15.9;measuredDistance>=14.89&options=count",
 									"host": [
 										"{{base_url}}"
 									],
@@ -5623,7 +5605,7 @@
 										},
 										{
 											"key": "q",
-											"value": "referenceLevel!=15.9"
+											"value": "referenceLevel!=15.9;measuredDistance>=14.89"
 										},
 										{
 											"key": "options",
@@ -5863,8 +5845,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"b58da193-23d9-43eb-b98a-a103d4b6103c\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"referenceLevel\", 15.9);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70014);",
 											"});",
 											"",
 											""
@@ -6187,8 +6168,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"b58da193-23d9-43eb-b98a-a103d4b6103c\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"referenceLevel\", 15.9);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70010);",
 											"});",
 											"",
 											""
@@ -6558,7 +6538,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities/iisc.ac.in/89a36273d77dac4cf38114fca1bbe64392547f86/rs.iudx.io/pune-env-flood/FWR055",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities/b58da193-23d9-43eb-b98a-a103d4b6103c",
 									"host": [
 										"{{base_url}}"
 									],
@@ -6566,11 +6546,7 @@
 										"ngsi-ld",
 										"v1",
 										"entities",
-										"iisc.ac.in",
-										"89a36273d77dac4cf38114fca1bbe64392547f86",
-										"rs.iudx.io",
-										"pune-env-flood",
-										"FWR055"
+										"b58da193-23d9-43eb-b98a-a103d4b6103c"
 									]
 								}
 							},
@@ -6582,7 +6558,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											"// Test the response code",
 											"pm.test(\"response is 404 (Not Found)\", function () {",
@@ -6599,7 +6574,8 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Not Found\");",
 											"});"
-										]
+										],
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -6613,7 +6589,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities/iisc.ac.in/89a36273d77dac4cf38114fca1bbe64392547f86/rs.iudx.io/pune-env-flood/non-existing-id",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities/b58da193-23d9-43eb-b98a-a103d4b6102c",
 									"host": [
 										"{{base_url}}"
 									],
@@ -6621,11 +6597,7 @@
 										"ngsi-ld",
 										"v1",
 										"entities",
-										"iisc.ac.in",
-										"89a36273d77dac4cf38114fca1bbe64392547f86",
-										"rs.iudx.io",
-										"pune-env-flood",
-										"non-existing-id"
+										"b58da193-23d9-43eb-b98a-a103d4b6102c"
 									]
 								}
 							},
@@ -6637,7 +6609,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											"// Test the response code",
 											"pm.test(\"response is 401 (Not Authorized)\", function () {",
@@ -6654,7 +6625,8 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Not Authorized\");",
 											"});"
-										]
+										],
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -6668,7 +6640,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities/iisc.ac.in/89a36273d77dac4cf38114fca1bbe64392547f86/rs.iudx.io/surat-itms-realtime-information/surat-itms-live-eta",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities/83c2e5c2-3574-4e11-9530-2b1fbdfce832",
 									"host": [
 										"{{base_url}}"
 									],
@@ -6676,11 +6648,7 @@
 										"ngsi-ld",
 										"v1",
 										"entities",
-										"iisc.ac.in",
-										"89a36273d77dac4cf38114fca1bbe64392547f86",
-										"rs.iudx.io",
-										"surat-itms-realtime-information",
-										"surat-itms-live-eta"
+										"83c2e5c2-3574-4e11-9530-2b1fbdfce832"
 									]
 								}
 							},
@@ -7081,7 +7049,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											"// Test the response code\r",
 											"pm.test(\"response is 200 (OK)\", function () {\r",
@@ -7100,7 +7067,8 @@
 											"    const resultsjsonData = body.results[0];\r",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\");\r",
 											"});"
-										]
+										],
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -7114,7 +7082,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=83c2e5c2-3574-4e11-9530-2b1fbdfce832&geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[72.719,21],[72.842,21.2],[72.923,20.8],[72.74,20.34],[72.9,20.1],[72.67,20],[72.719,21]]]",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=83c2e5c2-3574-4e11-9530-2b1fbdfce832&geoproperty=location&georel=within&geometry=Polygon&coordinates=[[[72.76,21.15],[72.76,21.13],[72.78,21.13],[72.76,21.15]]]",
 									"host": [
 										"{{base_url}}"
 									],
@@ -7142,7 +7110,7 @@
 										},
 										{
 											"key": "coordinates",
-											"value": "[[[72.719,21],[72.842,21.2],[72.923,20.8],[72.74,20.34],[72.9,20.1],[72.67,20],[72.719,21]]]"
+											"value": "[[[72.76,21.15],[72.76,21.13],[72.78,21.13],[72.76,21.15]]]"
 										}
 									]
 								}
@@ -7432,7 +7400,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											"// Test the response code\r",
 											"pm.test(\"response is 200 (OK)\", function () {\r",
@@ -7451,7 +7418,8 @@
 											"    const resultsjsonData = body.results[0];\r",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\");\r",
 											"});"
-										]
+										],
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -7465,7 +7433,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=83c2e5c2-3574-4e11-9530-2b1fbdfce832&geoproperty=location&georel=intersects&geometry=linestring&coordinates=[[72.842,21.2],[72.923,20.8],[72.74,20.34],[72.9,20.1],[72.67,20]]",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=83c2e5c2-3574-4e11-9530-2b1fbdfce832&geoproperty=location&georel=intersects&geometry=linestring&coordinates=[[72.840269,21.204184],[72.750994,21.138154]]",
 									"host": [
 										"{{base_url}}"
 									],
@@ -7493,7 +7461,7 @@
 										},
 										{
 											"key": "coordinates",
-											"value": "[[72.842,21.2],[72.923,20.8],[72.74,20.34],[72.9,20.1],[72.67,20]]"
+											"value": "[[72.840269,21.204184],[72.750994,21.138154]]"
 										}
 									]
 								}
@@ -7824,7 +7792,7 @@
 											"    const body = pm.response.json();\r",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");\r",
 											"    const resultsjsonData = body.results[0];\r",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 4208);\r",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 20);\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -8195,7 +8163,7 @@
 											"    const body = pm.response.json();\r",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");\r",
 											"    const resultsjsonData = body.results[0];\r",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 270524);\r",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 2761);\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -8566,7 +8534,7 @@
 											"    const body = pm.response.json();\r",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");\r",
 											"    const resultsjsonData = body.results[0];\r",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 41018);\r",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 9);\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -8583,7 +8551,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=83c2e5c2-3574-4e11-9530-2b1fbdfce832&geoproperty=location&georel=intersects&geometry=linestring&coordinates=[[72.842,21.2],[72.923,20.8]]&options=count",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=83c2e5c2-3574-4e11-9530-2b1fbdfce832&geoproperty=location&georel=intersects&geometry=linestring&coordinates=[[72.840269,21.204184],[72.750994,21.138154]]&options=count",
 									"host": [
 										"{{base_url}}"
 									],
@@ -8611,7 +8579,7 @@
 										},
 										{
 											"key": "coordinates",
-											"value": "[[72.842,21.2],[72.923,20.8]]"
+											"value": "[[72.840269,21.204184],[72.750994,21.138154]]"
 										},
 										{
 											"key": "options",
@@ -8951,7 +8919,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											"// Test the response code",
 											"pm.test(\"response is 200 (OK)\", function () {",
@@ -8969,10 +8936,10 @@
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"speed\", 11.0);",
 											"});",
 											""
-										]
+										],
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -9212,7 +9179,6 @@
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"speed\", 15.8);",
 											"});",
 											""
 										],
@@ -9231,7 +9197,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"temporalQ\": {\n        \"timerel\": \"between\",\n        \"time\": \"2020-10-18T14:20:00Z\",\n        \"endtime\": \"2020-10-19T14:20:00Z\",\n        \"timeProperty\": \"observationDateTime\"\n    }\n}",
+									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"temporalQ\": {\n        \"timerel\": \"between\",\n        \"time\": \"2020-09-19T14:20:00Z\",\n        \"endtime\": \"2020-10-19T15:20:00Z\",\n        \"timeProperty\": \"observationDateTime\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -9443,7 +9409,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											"// Test the response code",
 											"pm.test(\"response is 200 (OK)\", function () {",
@@ -9461,10 +9426,10 @@
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"speed\", 0);",
 											"});",
 											""
-										]
+										],
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -9479,7 +9444,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"temporalQ\": {\n        \"timerel\": \"before\",\n        \"time\": \"2020-10-19T14:20:00Z\",\n        \"timeProperty\": \"observationDateTime\"\n    }\n}",
+									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"temporalQ\": {\n        \"timerel\": \"before\",\n        \"time\": \"2020-11-22T14:20:00Z\",\n        \"timeProperty\": \"observationDateTime\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -9691,7 +9656,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											"// Test the response code",
 											"pm.test(\"response is 200 (OK)\", function () {",
@@ -9711,7 +9675,8 @@
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\");",
 											"});",
 											""
-										]
+										],
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -9726,7 +9691,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"temporalQ\": {\n        \"timerel\": \"before\",\n        \"time\": \"2020-10-19T14:20:00Z\",\n        \"timeProperty\": \"observationDateTime\"\n    },\n    \"attrs\":\"id\"\n}",
+									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"temporalQ\": {\n        \"timerel\": \"before\",\n        \"time\": \"2020-11-22T14:20:00Z\",\n        \"timeProperty\": \"observationDateTime\"\n    },\n    \"attrs\":\"id\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -9955,7 +9920,6 @@
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"speed\", 43.0);",
 											"});",
 											""
 										],
@@ -9974,7 +9938,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"geoQ\": {\n        \"geometry\": \"Point\",\n        \"coordinates\": [21.178,72.834],\n        \"georel\": \"near;maxDistance=1000\",\n        \"geoproperty\": \"location\"\n    },\n    \"temporalQ\": {\n        \"timerel\": \"between\",\n        \"time\": \"2020-10-18T14:20:00Z\",\n        \"endtime\": \"2020-10-19T14:20:00Z\",\n        \"timeProperty\": \"observationDateTime\"\n    },\n    \"q\":\"speed>30.0\",\n    \"attrs\":\"id,speed\"\n}",
+									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"geoQ\": {\n        \"geometry\": \"Point\",\n        \"coordinates\": [21.178,72.834],\n        \"georel\": \"near;maxDistance=1000\",\n        \"geoproperty\": \"location\"\n    },\n    \"temporalQ\": {\n        \"timerel\": \"between\",\n        \"time\": \"2020-10-18T14:20:00Z\",\n        \"endtime\": \"2020-11-19T14:20:00Z\",\n        \"timeProperty\": \"observationDateTime\"\n    },\n    \"q\":\"speed>30.0\",\n    \"attrs\":\"id,speed\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10096,7 +10060,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"iisc.ac.in/89a36273d77dac4cf38114fca1bbe64392547f86/rs.iudx.io/surat-itms-realtime-information/surat-itms-live\"\n        }\n    ],\n    \"geoQ\": {\n        \"geometry\": \"Point\",\n        \"coordinates\": [21.178,72.834],\n        \"georel\": \"near;maxDistance=1000\",\n        \"geoproperty\": \"location\"\n    },\n    \"temporalQ\": {\n        \"timerel\": \"between\",\n        \"time\": \"2020-09-18T14:20:00Z\",\n        \"endtime\": \"2020-09-19T14:20:00Z\",\n        \"timeProperty\": \"observationDateTime\"\n    },\n    \"q\":\"speed>30.0\",\n    \"attrs\":\"id,speed\"\n}",
+									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce822\"\n        }\n    ],\n    \"geoQ\": {\n        \"geometry\": \"Point\",\n        \"coordinates\": [21.178,72.834],\n        \"georel\": \"near;maxDistance=1000\",\n        \"geoproperty\": \"location\"\n    },\n    \"temporalQ\": {\n        \"timerel\": \"between\",\n        \"time\": \"2020-09-18T14:20:00Z\",\n        \"endtime\": \"2020-09-19T14:20:00Z\",\n        \"timeProperty\": \"observationDateTime\"\n    },\n    \"q\":\"speed>30.0\",\n    \"attrs\":\"id,speed\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10186,7 +10150,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											"// Test the response code",
 											"pm.test(\"response is 200 (OK)\", function () {",
@@ -10204,10 +10167,10 @@
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"speed\", 38);",
 											"});",
 											""
-										]
+										],
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -10222,7 +10185,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"geoQ\": {\n        \"geometry\": \"Polygon\",\n        \"coordinates\": [[[72.719,21],[72.842,21.2],[72.923,20.8],[72.74,20.34],[72.9,20.1],[72.67,20],[72.719,21]]],\n        \"georel\": \"within\",\n        \"geoproperty\": \"location\"\n    }\n}",
+									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"geoQ\": {\n        \"geometry\": \"Polygon\",\n        \"coordinates\": [[[72.76,21.15],[72.76,21.13],[72.78,21.13],[72.76,21.15]]],\n        \"georel\": \"within\",\n        \"geoproperty\": \"location\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10430,7 +10393,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											"// Test the response code",
 											"pm.test(\"response is 200 (OK)\", function () {",
@@ -10448,10 +10410,10 @@
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"speed\", 44);",
 											"});",
 											""
-										]
+										],
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -10674,7 +10636,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											"// Test the response code",
 											"pm.test(\"response is 200 (OK)\", function () {",
@@ -10692,10 +10653,10 @@
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"speed\", 38);",
 											"});",
 											""
-										]
+										],
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -10710,7 +10671,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"geoQ\": {\n        \"geometry\": \"linestring\",\n        \"coordinates\": [[72.842,21.2],[72.923,20.8],[72.74,20.34],[72.9,20.1],[72.67,20]],\n        \"georel\": \"intersects\",\n        \"geoproperty\": \"location\"\n    }\n}",
+									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"geoQ\": {\n        \"geometry\": \"linestring\",\n        \"coordinates\": [[72.840269,21.204184],[72.750994,21.138154]],\n        \"georel\": \"intersects\",\n        \"geoproperty\": \"location\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10959,7 +10920,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 83530);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 1109);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -11201,7 +11162,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 123805);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 20813);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -11219,7 +11180,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"temporalQ\": {\n        \"timerel\": \"between\",\n        \"time\": \"2020-10-18T14:20:00Z\",\n        \"endtime\": \"2020-10-19T14:20:00Z\",\n        \"timeProperty\": \"observationDateTime\"\n    },\n    \"options\":\"count\"\n}",
+									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"temporalQ\": {\n        \"timerel\": \"between\",\n        \"time\": \"2020-09-18T14:20:00Z\",\n        \"endtime\": \"2020-10-19T14:20:00Z\",\n        \"timeProperty\": \"observationDateTime\"\n    },\n    \"options\":\"count\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -11447,7 +11408,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 864455);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 20813);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -11693,7 +11654,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 3430);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 327);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -11711,7 +11672,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"geoQ\": {\n        \"geometry\": \"Point\",\n        \"coordinates\": [21.178,72.834],\n        \"georel\": \"near;maxDistance=1000\",\n        \"geoproperty\": \"location\"\n    },\n    \"temporalQ\": {\n        \"timerel\": \"between\",\n        \"time\": \"2020-10-18T14:20:00Z\",\n        \"endtime\": \"2020-10-19T14:20:00Z\",\n        \"timeProperty\": \"observationDateTime\"\n    },\n    \"q\":\"speed>30.0\",\n    \"options\":\"count\"\n}",
+									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"geoQ\": {\n        \"geometry\": \"Point\",\n        \"coordinates\": [21.178,72.834],\n        \"georel\": \"near;maxDistance=1000\",\n        \"geoproperty\": \"location\"\n    },\n    \"temporalQ\": {\n        \"timerel\": \"between\",\n        \"time\": \"2020-09-18T14:20:00Z\",\n        \"endtime\": \"2020-10-19T14:20:00Z\",\n        \"timeProperty\": \"observationDateTime\"\n    },\n    \"q\":\"speed>30.0\",\n    \"options\":\"count\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -11939,7 +11900,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 270524);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 2761);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -12181,7 +12142,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 903);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 21);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -12423,7 +12384,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 119771);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 9);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -12441,7 +12402,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"geoQ\": {\n        \"geometry\": \"linestring\",\n        \"coordinates\": [[72.842,21.2],[72.923,20.8],[72.74,20.34],[72.9,20.1],[72.67,20]],\n        \"georel\": \"intersects\",\n        \"geoproperty\": \"location\"\n    },\n    \"options\":\"count\"\n}",
+									"raw": "{\n    \"type\": \"Query\",\n    \"entities\": [\n        {\n            \"id\": \"83c2e5c2-3574-4e11-9530-2b1fbdfce832\"\n        }\n    ],\n    \"geoQ\": {\n        \"geometry\": \"linestring\",\n        \"coordinates\": [[72.840269,21.204184],[72.750994,21.138154]],\n        \"georel\": \"intersects\",\n        \"geoproperty\": \"location\"\n    },\n    \"options\":\"count\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
