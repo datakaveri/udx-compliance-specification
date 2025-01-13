@@ -12,8 +12,6 @@ the UDX (Unified Data Exchange) NGSI-LD API Specification.
 - [Install the Test Suite](#install-the-test-suite)
 - [Configure the test suite](#configure-the-test-suite)
 - [Execute the NGSI-LD Test Suite](#execute-the-ngsi-ld-test-suite)
-    - [Install IDE (PyCharm)](#install-ide-pycharm)
-    - [Run configurations (PyCharm)](#run-configurations-pycharm)
 - [Frameworks and libraries used in the project](#frameworks-and-libraries-used-in-the-project)
 - [Useful links](#useful-links)
 - [LICENSE](#license)
@@ -171,12 +169,6 @@ There are several ways to run a Postman collection, with some of the commonly us
   installed and running for proper functionality.
 
 ### Installation
-
-### Execution
-
-### Install IDE (PyCharm)
-
-### Run configurations (PyCharm)
 
 ## Frameworks and libraries used in the project
 
