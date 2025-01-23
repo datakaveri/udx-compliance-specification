@@ -79,10 +79,10 @@ Import environment file i,e ```IS 18003 Part 3-  UDX - Resource Access Service.p
     </div>
 
     * Go to the Environments Section
-        * Click on the **Environments** button (gear icon) in the top-right corner of the Postman interface.
+        * Click on the **Environments** button (gear icon) in the top-left corner of the Postman interface.
         * Navigate to the **Import** Option
         * On the Postman home page, look for the **Import** button and click on it.
-        * You can find it in the top-left corner of the interface, near the **New** button.
+        * You can find it in the top-right corner of the interface, near the **New** button.
 * **Choose the File**
     * A pop-up window will appear with multiple import options. Select the **File** tab
   <div style="text-align: center;">
@@ -130,8 +130,8 @@ Import collection file i,e ```IS 18003 Part 3-  UDX - Resource Access Service.po
   <img src="./docs/collectionImport.png" />
     </div>
 
-    * Go to the Environments Section
-        * Click on the **Environments** button (gear icon) in the top-right corner of the Postman interface.
+    * Go to the Collections Section
+        * Click on the **Collections** button (gear icon) in the top-left corner of the Postman interface.
         * Navigate to the Import Option
             * On the Postman home page, look for the **Import** button and click on it.
             * You can find it in the top-left corner of the interface, near the **New** button.
@@ -160,7 +160,7 @@ Import collection file i,e ```IS 18003 Part 3-  UDX - Resource Access Service.po
   <img src="./docs/veriry_and_import_collection.png" />
     </div>
 
-    * Once imported, the Environment will appear in the **Collections** tab on the left-hand side of the Postman
+    * Once imported, the Collection will appear in the **Collections** tab on the left-hand side of the Postman
       interface.
     * Expand the collection to view its requests and folders.
 
