@@ -54,15 +54,16 @@ the UDX (Unified Data Exchange) NGSI-LD API Specification.
         - Run the following command to check if Git is installed: `git --version`
 3. **Clone a Repository**
     - Go to the repository on your Git hosting platform (
-      i.g., https://github.com/datakaveri/udx-compliance-specification).
+      i.e., https://github.com/datakaveri/udx-compliance-specification).
     - Click the Code or Clone button.
     - Copy the repository's HTTPS (
-      i.g., https://github.com/datakaveri/udx-compliance-specification.git)
+      i.e., https://github.com/datakaveri/udx-compliance-specification.git)
     - Open a Terminal or Command Prompt
     - Navigate to the directory where you want to clone the repository using the cd command (e.g.,
       `cd /path/to/your/desired/folder`).
     - Use the following command to clone the repository: `git clone <repository-url>`
-      - Replace <repository-url> with the copied URL, i.g.: `git clone https://github.com/datakaveri/udx-compliance-specification.git`
+        - Replace <repository-url> with the copied URL, i.e.:
+          `git clone https://github.com/datakaveri/udx-compliance-specification.git`
 
 ## Configure the test suite
 
