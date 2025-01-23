@@ -22,6 +22,50 @@ the UDX (Unified Data Exchange) NGSI-LD API Specification.
 
 ## Install the Test Suite
 
+1. **Install Postman Application:**
+    - On Windows
+        - Open a web browser and visit the [Postman Download Page](https://www.postman.com/downloads/).
+        - Click on the Download button for your system (e.g., Windows x64 ). The website usually detects your operating
+          system automatically, but you can manually select the appropriate version if needed.
+        - The Postman setup file (e.g., Postman-win64-setup.exe) will start downloading.
+        - Once the download is complete, go to the folder where the file was saved (usually the Downloads folder).
+        - Double-click the downloaded Postman-win64-setup.exe file to start the installation process.
+        - The installer will launch, and Postman will start installing automatically. No manual steps are required
+          during the installation.
+        - Wait for the installation process to complete.
+        - After installation, Postman will launch automatically. If it doesn’t, you can find it in the Start Menu or on
+          your Desktop.
+    - On Ubuntu
+        - Most Ubuntu distributions come with Snap pre-installed.
+        - To verify, run this command in your terminal:
+          `snap --version `
+        - If Snap is not installed, install it with:`sudo apt update` `sudo apt install snapd `
+        - Run the following command in your terminal: `sudo snap install postman`
+        - Once installed, you can check if Postman is available by running: `snap list postman`
+        - Open Postman from your application menu, or run: `postman`
+2. **Clone the Repo:**
+    - Pre-requisites
+        - Install Git:
+            - If Git is not already installed, download and install it from Git's official website or use the following
+              commands:
+          ```
+          $ sudo apt update         
+          $ sudo apt install git
+          ```
+        - On Windows, install Git via the official installer or package manager.
+        - Run the following command to check if Git is installed: `git --version`
+3. **Clone a Repository**
+    - Go to the repository on your Git hosting platform (
+      i.g., https://github.com/datakaveri/udx-compliance-specification).
+    - Click the Code or Clone button.
+    - Copy the repository's HTTPS (
+      i.g., https://github.com/datakaveri/udx-compliance-specification.git)
+    - Open a Terminal or Command Prompt
+    - Navigate to the directory where you want to clone the repository using the cd command (e.g.,
+      `cd /path/to/your/desired/folder`).
+    - Use the following command to clone the repository: `git clone <repository-url>`
+      - Replace <repository-url> with the copied URL, i.g.: `git clone https://github.com/datakaveri/udx-compliance-specification.git`
+
 ## Configure the test suite
 
 The first operation that you have to clone the Repository on your own machine and follow the following steps:
