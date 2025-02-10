@@ -170,6 +170,75 @@ There are several ways to run a Postman collection, with some of the commonly us
 
 ### Installation
 
+
+### Restore Elasticsearch Indices Using Elasticdump
+
+#### Prerequisites
+
+Ensure you have **Node.js** installed, then install `elasticdump` globally using npm:
+
+```sh
+npm install -g elasticdump
+```
+
+## Download Mapping and Data Files
+
+Use the following command to download the mapping and data files from Google Drive:
+
+```sh
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1hbmrSFUzo068EuLpYc1hFAneruIm-5Ge' -O chandigarh-5b7556b5-0779-4c47-9cf2-3f209779aa22-mapping.json
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1rQc1cFAjwZbTZPoGltcTnrZtpbZWfl9_' -O chandigarh-5b7556b5-0779-4c47-9cf2-3f209779aa22-data.json
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15zbAkp8pX0IMfuxxowVMQVj1PmynQp6E' -O surat-8b95ab80-2aaf-4636-a65e-7f2563d0d371-mapping.json
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1GOEP5_O6ac7GkF0QkRnrM5kW8EEmLMaa' -O surat-8b95ab80-2aaf-4636-a65e-7f2563d0d371-data.json
+```
+
+Above commands will download Surat and Chandigarh mappings with data json files.
+
+## Restoring the Indices
+
+Replace `<TARGET_HOST>`, `<USERNAME>`, `<PASSWORD>`, and `<TARGET_INDEX>` accordingly.
+Ensure the password is **URL-encoded**.
+
+### Step 1: Restore Mappings
+
+```sh
+elasticdump \
+  --input=https://<USERNAME>:<URLENCODED_PASSWORD>@<TARGET_HOST>/<TARGET_INDEX> \
+  --output=<MAPPINGS-JSON-FILE-PATH> \
+  --type=mapping
+```
+
+### Step 2: Restore Data
+
+```sh
+elasticdump \
+  --input=https://<USERNAME>:<URLENCODED_PASSWORD>@<TARGET_HOST>/<TARGET_INDEX> \
+  --output=<DATA-JSON-FILE-PATH> \
+  --type=data
+```
+
+### Example Usage
+
+```sh
+elasticdump \
+  --input=surat-8b95ab80-2aaf-4636-a65e-7f2563d0d371-mapping.json \
+  --output=https://user:password@database.iudx.io:24034/surat-restore \
+  --type=mapping
+
+elasticdump \
+  --input=surat-8b95ab80-2aaf-4636-a65e-7f2563d0d371-data.json \
+  --output=https://user:password@database.iudx.io:24034/surat-restore \
+  --type=data
+```
+
+Ensure that `<USERNAME>` and `<PASSWORD>` are **URL-encoded if it contains special characters** before use.
+
+
+
+This should display the restored mappings and data.
+
+
+
 ## Frameworks and libraries used in the project
 
 ## Useful links
