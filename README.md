@@ -9,6 +9,8 @@ the UDX (Unified Data Exchange) NGSI-LD API Specification.
 
 <summary><strong>Details</strong></summary>
 
+- [Data sets](#data-sets)
+- [Importing the data](#importing-the-data)
 - [Install the Test Suite](#install-the-test-suite)
 - [Configure the test suite](#configure-the-test-suite)
 - [Execute the NGSI-LD Test Suite](#execute-the-ngsi-ld-test-suite)
@@ -17,6 +19,157 @@ the UDX (Unified Data Exchange) NGSI-LD API Specification.
 - [LICENSE](#license)
 
 </details>
+
+## Data sets
+#### Transit Management DataSet
+**Example :-** 
+```
+{
+  "trip_direction":"UP",
+  "trip_id":"15308692",
+  "route_id":"104U",
+  "trip_delay":128,
+  "last_stop_arrival_time":"14:40:45",
+  "actual_trip_start_time":"2020-11-28T14:38:35+05:30",
+  "vehicle_label":"M74",
+  "observationDateTime":"2020-11-28T14:42:09+05:30",
+  "speed":12,
+  "license_plate":"GJ05BX3983",
+  "last_stop_id":"1003",
+  "location":{"coordinates":[72.843017,21.192156],"type":"Point"},
+  "id":"83c2e5c2-3574-4e11-9530-2b1fbdfce832"
+}
+```
+<u>**Description :-**</u>
+| **Attribute**               | **Description**  |
+|-----------------------------|-----------------|
+| **trip_direction**          | **dataSchema:** Text — The direction in which the vehicle is travelling. ENUM[UP,DN]. |
+| **trip_id**                 | **dataSchema:** Text — Trip ID/Trip name allotted to the bus corresponding to this observation. |
+| **route_id**                | **dataSchema:** Text — Route ID assigned to the route on which the bus corresponding to this observation is plying on. |
+| **trip_delay**              | **dataSchema:** Number — This can be positive and negative in seconds and shows how much the vehicle deviates from the planned one. **unitCode:** SEC, **unitText:** second. |
+| **last_stop_arrival_time**  | **dataSchema:** DateTime — MM. |
+| **vehicle_label**           | **dataSchema:** Text — User visible label, i.e., something that must be shown to the passenger to help identify the correct vehicle. |
+| **actual_trip_start_time**  | **dataSchema:** DateTime — This field specifies the time at which bus service actually began for the trip corresponding to this observation. |
+| **observationDateTime**     | **dataSchema:** DateTime — The time at which the vehicle was last tracked. |
+| **speed**                   | **dataSchema:** Number — The Speed of the bus observed at the last tracked coordinates. **unitCode:** KMH, **unitText:** kilometre per hour. |
+| **license_plate**           | **dataSchema:** Text — Vehicle registration number/license plate number of the bus corresponding to this observation. |
+| **last_stop_id**            | **dataSchema:** Text — Stop ID/Stop name of the previous bus stop corresponding to the bus in this observation. |
+| **location**                | **dataSchema:** Point — The coordinates for the current position of the bus corresponding to this observation. |
+
+
+
+<u>**Queryable Attributes :-**</u> 
+| **Attribute**               | **Description**  |
+|-----------------------------|-----------------|
+| **trip_direction**          | Used for attribute query|
+| **trip_id**                 | Used for attribute query|
+| **route_id**                | Used for attribute query| 
+| **last_stop_arrival_time**  | Used for attribute query|
+| **vehicle_label**           | Used for attribute query|
+| **actual_trip_start_time**  | Used for attribute query|
+| **observationDateTime**     | Used for temporal query|
+| **speed**                   | Used for attribute query|
+| **license_plate**           | Used for attribute query|
+| **last_stop_id**            | Used for attribute query|
+| **location**                | Used for spatial query |
+---------------------------------------------------------
+
+#### Air Quality Management DataSet
+**Example :-** 
+```
+{
+  "currentLevel":1.16,
+  "measuredDistance":14.74,
+  "referenceLevel":15.9,"id":"b58da193-23d9-43eb-b98a-a103d4b6103c","observationDateTime":"2020-09-22T18:30:00+05:30",
+  "deviceInfo":
+    {
+      "deviceID":"FWR055"
+    }
+  }
+```
+<u>**Description :-**</u>
+| **Attribute**           | **Description**  |
+|-------------------------|-----------------|
+| **currentLevel**        | **dataSchema:** Number — Current flooding level indicated by the sensing station corresponding to this observation, computed using referenceLevel and measuredDistance (currentLevel = referenceLevel - measuredDistance). **unitCode:** MTR, **unitText:** meter. |
+| **measuredDistance**    | **dataSchema:** Number — The distance measured by the sensor, from the sensor tip to the upper surface of water. **unitCode:** MTR, **unitText:** meter. |
+| **referenceLevel**      | **dataSchema:** Number — Reference setting used to compute the currentLevel. **unitCode:** MTR, **unitText:** meter. |
+| **observationDateTime** | **dataSchema:** DateTime — Last reported time of observation. |
+
+
+
+
+<u>**Queryable Attributes :-**</u> 
+| **Attribute**           | **Description**  |
+|-------------------------|-----------------|
+| **currentLevel**        | Used for attribute query |
+| **measuredDistance**    | Used for attribute query |
+| **referenceLevel**      | Used for attribute query |
+| **observationDateTime** | Used for temporal query |
+
+
+## Importing the data
+### Restore Elasticsearch Indices Using Elasticdump
+
+#### Prerequisites
+
+Ensure you have **Node.js** installed, then install `elasticdump` globally using npm:
+
+```sh
+npm install -g elasticdump
+```
+
+## Download Mapping and Data Files
+
+Use the following command to download the mapping and data files from Google Drive:
+
+```sh
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1hbmrSFUzo068EuLpYc1hFAneruIm-5Ge' -O chandigarh-5b7556b5-0779-4c47-9cf2-3f209779aa22-mapping.json
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1rQc1cFAjwZbTZPoGltcTnrZtpbZWfl9_' -O chandigarh-5b7556b5-0779-4c47-9cf2-3f209779aa22-data.json
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15zbAkp8pX0IMfuxxowVMQVj1PmynQp6E' -O surat-8b95ab80-2aaf-4636-a65e-7f2563d0d371-mapping.json
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1GOEP5_O6ac7GkF0QkRnrM5kW8EEmLMaa' -O surat-8b95ab80-2aaf-4636-a65e-7f2563d0d371-data.json
+```
+
+Above commands will download Surat and Chandigarh mappings with data json files.
+
+## Restoring the Indices
+
+Replace `<TARGET_HOST>`, `<USERNAME>`, `<PASSWORD>`, and `<TARGET_INDEX>` accordingly.
+Ensure the password is **URL-encoded**.
+
+### Step 1: Restore Mappings
+
+```sh
+elasticdump \
+  --input=https://<USERNAME>:<URLENCODED_PASSWORD>@<TARGET_HOST>/<TARGET_INDEX> \
+  --output=<MAPPINGS-JSON-FILE-PATH> \
+  --type=mapping
+```
+
+### Step 2: Restore Data
+
+```sh
+elasticdump \
+  --input=https://<USERNAME>:<URLENCODED_PASSWORD>@<TARGET_HOST>/<TARGET_INDEX> \
+  --output=<DATA-JSON-FILE-PATH> \
+  --type=data
+```
+
+### Example Usage
+
+```sh
+elasticdump \
+  --input=surat-8b95ab80-2aaf-4636-a65e-7f2563d0d371-mapping.json \
+  --output=https://user:password@database.iudx.io:24034/surat-restore \
+  --type=mapping
+
+elasticdump \
+  --input=surat-8b95ab80-2aaf-4636-a65e-7f2563d0d371-data.json \
+  --output=https://user:password@database.iudx.io:24034/surat-restore \
+  --type=data
+```
+
+Ensure that `<USERNAME>` and `<PASSWORD>` are **URL-encoded if it contains special characters** before use.
+
 
 ## Install the Test Suite
 
@@ -214,6 +367,9 @@ There are several ways to run a Postman collection, with some of the commonly us
   installed and running for proper functionality.
 
 ### Installation
+
+
+
 
 ## Frameworks and libraries used in the project
 
