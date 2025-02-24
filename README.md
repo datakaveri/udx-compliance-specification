@@ -82,10 +82,7 @@ the UDX (Unified Data Exchange) NGSI-LD API Specification.
   "measuredDistance":14.74,
   "referenceLevel":15.9,"id":"b58da193-23d9-43eb-b98a-a103d4b6103c",
   "observationDateTime":"2020-09-22T18:30:00+05:30",
-  "deviceInfo":
-    {
-      "deviceID":"FWR055"
-    }
+  "id": "b58da193-23d9-43eb-b98a-a103d4b6103c"
   }
 ```
 <u>**Description :-**</u>
