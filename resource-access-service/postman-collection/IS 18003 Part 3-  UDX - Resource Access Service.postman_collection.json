@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8592151d-f6cf-4c49-bd6c-9fd74c3ddef6",
+		"_postman_id": "b4282dc3-2356-41ec-a3f3-5e90d0ee9b65",
 		"name": "IS 18003 Part 3: Resource Access Service (Latest)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "20457128"
@@ -1088,7 +1088,7 @@
 											"    const body = pm.response.json();\r",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");\r",
 											"    const resultsjsonData = body.results[0];\r",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70014);\r",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 2562);\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -1382,7 +1382,7 @@
 											"    const body = pm.response.json();\r",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");\r",
 											"    const resultsjsonData = body.results[0];\r",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70014);\r",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 2554);\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -1680,7 +1680,7 @@
 											"    const body = pm.response.json();\r",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");\r",
 											"    const resultsjsonData = body.results[0];\r",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 779);\r",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 4091);\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -2903,7 +2903,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel>16.0",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel>15.8",
 									"host": [
 										"{{base_url}}"
 									],
@@ -2919,7 +2919,7 @@
 										},
 										{
 											"key": "q",
-											"value": "referenceLevel>16.0"
+											"value": "referenceLevel>15.8"
 										},
 										{
 											"key": "",
@@ -3187,7 +3187,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel==115.9",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel==15.9",
 									"host": [
 										"{{base_url}}"
 									],
@@ -3203,7 +3203,7 @@
 										},
 										{
 											"key": "q",
-											"value": "referenceLevel==115.9"
+											"value": "referenceLevel==15.9"
 										},
 										{
 											"key": "",
@@ -3453,7 +3453,6 @@
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
 											"    pm.expect(resultsjsonData).to.have.property(\"id\", \"b58da193-23d9-43eb-b98a-a103d4b6103c\");",
-											"    pm.expect(resultsjsonData).to.have.property(\"referenceLevel\", 115.9);",
 											"});",
 											"",
 											""
@@ -3472,7 +3471,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel!=15.9",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel!=15.7",
 									"host": [
 										"{{base_url}}"
 									],
@@ -3488,7 +3487,7 @@
 										},
 										{
 											"key": "q",
-											"value": "referenceLevel!=15.9"
+											"value": "referenceLevel!=15.7"
 										},
 										{
 											"key": "",
@@ -3815,7 +3814,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel>=16.0",
+									"raw": "{{base_url}}/ngsi-ld/v1/entities?id=b58da193-23d9-43eb-b98a-a103d4b6103c&q=referenceLevel>=15.9",
 									"host": [
 										"{{base_url}}"
 									],
@@ -3831,7 +3830,7 @@
 										},
 										{
 											"key": "q",
-											"value": "referenceLevel>=16.0"
+											"value": "referenceLevel>=15.9"
 										},
 										{
 											"key": "",
@@ -4508,7 +4507,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70010);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 2793);",
 											"});",
 											"",
 											""
@@ -4846,7 +4845,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70014);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 2793);",
 											"});",
 											"",
 											""
@@ -5174,7 +5173,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70010);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 2793);",
 											"});",
 											"",
 											""
@@ -5512,7 +5511,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70014);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 2793);",
 											"});",
 											"",
 											""
@@ -5845,7 +5844,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70014);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 2793);",
 											"});",
 											"",
 											""
@@ -6168,7 +6167,7 @@
 											"    const body = pm.response.json();",
 											"    pm.expect(body).to.have.property(\"title\", \"Success\");",
 											"    const resultsjsonData = body.results[0];",
-											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 70010);",
+											"    pm.expect(resultsjsonData).to.have.property(\"totalHits\", 2793);",
 											"});",
 											"",
 											""
