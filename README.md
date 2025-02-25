@@ -124,7 +124,7 @@ Use the following command to download the mapping and data files from Google Dri
 
 ```sh
 wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1hbmrSFUzo068EuLpYc1hFAneruIm-5Ge' -O chandigarh-5b7556b5-0779-4c47-9cf2-3f209779aa22-mapping.json
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1rQc1cFAjwZbTZPoGltcTnrZtpbZWfl9_' -O chandigarh-5b7556b5-0779-4c47-9cf2-3f209779aa22-data.json
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1AKFDYFUzlohFwE117irrPJAdjZwh_USl' -O chandigarh-5b7556b5-0779-4c47-9cf2-3f209779aa22-data.json
 wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15zbAkp8pX0IMfuxxowVMQVj1PmynQp6E' -O surat-8b95ab80-2aaf-4636-a65e-7f2563d0d371-mapping.json
 wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1GOEP5_O6ac7GkF0QkRnrM5kW8EEmLMaa' -O surat-8b95ab80-2aaf-4636-a65e-7f2563d0d371-data.json
 ```
